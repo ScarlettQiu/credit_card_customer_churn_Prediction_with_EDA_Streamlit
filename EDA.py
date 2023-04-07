@@ -3,7 +3,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
-df = read('/Users/qiuyu/Desktop/ALY6140/M2/Capstone/BankChurners.csv')
+df = read('https://raw.githubusercontent.com/ScarlettQiu/credit_card_customer_churn_prediction/af46862bff782f1008725fa49db88d1e36fc8d43/BankChurners.csv')
 df_cleaned = clean(df)
 #count the number of customers by customer status
 cus_status = df_cleaned['Attrition_Flag'].value_counts().reset_index()
