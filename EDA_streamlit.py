@@ -46,8 +46,8 @@ kpi2.metric(
 )
 
 kpi3.metric(
-    label = 'Married Count',
-    value=int(percent_married)
+    label = 'Married Percent',
+    value=percent_married
 )
 
 
