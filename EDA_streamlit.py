@@ -36,12 +36,12 @@ kpi1, kpi2, kpi3 = st.columns(3)
 
 #fill in those three columns with respective metrics or KPIs
 kpi1.metric(
-    label = 'Age',
+    label = 'Average Age',
     value = round(avg_age)
 )
 
 kpi2.metric(
-    label = 'Dependent_count',
+    label = 'Average Dependent Count',
     value = round(avg_dep)
 )
 
