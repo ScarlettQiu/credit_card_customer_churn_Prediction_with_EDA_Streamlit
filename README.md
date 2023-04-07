@@ -29,7 +29,7 @@ The purpose of this project is to find the strategies to retain the customers wh
 
 ## EDA Dashboard created using Streamlit  
 #### [EDA Dashboard](https://scarlettqiu-credit-card-customer-churn-pre-eda-streamlit-x8me96.streamlit.app/)  
-![image](https://user-images.githubusercontent.com/93269907/230678680-8e1d6486-2ecc-4d7e-b9e6-db72dd453969.png)
+![image](https://user-images.githubusercontent.com/93269907/230689526-69911ce5-5dca-4721-8bd6-4b697d590dbf.png)
 
 
 ## Models
