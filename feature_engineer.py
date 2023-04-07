@@ -50,7 +50,7 @@ def pca(df):
 
 if __name__ == "__main__":
     # Main functions to Run
-    df = encode('/Users/qiuyu/Desktop/ALY6140/M2/Capstone/BankChurners.csv')
+    df = encode('https://raw.githubusercontent.com/ScarlettQiu/credit_card_customer_churn_prediction/af46862bff782f1008725fa49db88d1e36fc8d43/BankChurners.csv')
     print(df.head())
     train_x, test_x, train_y, test_y=split(df)
     # check the shape of training set and test set
