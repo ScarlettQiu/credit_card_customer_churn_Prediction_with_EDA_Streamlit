@@ -16,7 +16,7 @@ st.text(name)
 
 dataset_url = "https://raw.githubusercontent.com/ScarlettQiu/credit_card_customer_churn_prediction/af46862bff782f1008725fa49db88d1e36fc8d43/BankChurners.csv"
 
-@st.cache_data
+@st.experimental_memo
 def get_data() -> pd.DataFrame:
     return read(dataset_url)
 
