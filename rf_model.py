@@ -38,7 +38,7 @@ def metric(test_y, pred_y):
 if __name__ == "__main__":
     # Main functions to Run
     import pandas as pd
-    df_cleaned = encode('/Users/qiuyu/Desktop/ALY6140/M2/Capstone/BankChurners.csv')
+    df_cleaned = encode('https://raw.githubusercontent.com/ScarlettQiu/credit_card_customer_churn_prediction/af46862bff782f1008725fa49db88d1e36fc8d43/BankChurners.csv')
     train_x, test_x, train_y, test_y = split(df_cleaned)
     train_x_o, train_y_o = over_sampling(train_x, train_y)
     train_x_std = scale(train_x_o)
