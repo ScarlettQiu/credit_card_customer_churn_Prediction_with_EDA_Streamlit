@@ -10,7 +10,7 @@ import streamlit as st  # 🎈 data web app development
 
 name = "Credit Card Customers EDA Dashboard"
 
-st.text(name)
+st.header(name)
 
 
 
