@@ -1,5 +1,5 @@
 import streamlit as st
-from fileload import read
+from fileload import read, clean
 import pandas as pd
 import time  # to simulate a real time data, time loop
 
@@ -191,7 +191,8 @@ st.markdown("Scatter Plot: Dependent_count & Months_on_book Colored by Customer 
 fig = px.scatter(df2, x='Dependent_count', y='Months_on_book', color='Attrition_Flag')
 st.write(fig)
 
-df_cleaned = df.drop(['CLIENTNUM','Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_1', 'Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_2'], axis=1)
+#df_cleaned = df.drop(['CLIENTNUM','Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_1', 'Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_2'], axis=1)
+df_cleaned = clean(df2)
 numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
 newdf = df_cleaned.select_dtypes(include=numerics)
 st.markdown("Scatter Plot: Dependent_count & Months_on_book Colored by Customer Status")
