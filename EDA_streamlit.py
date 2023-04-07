@@ -1,3 +1,4 @@
+pip install plotly
 import streamlit as st
 from fileload import read
 import pandas as pd
