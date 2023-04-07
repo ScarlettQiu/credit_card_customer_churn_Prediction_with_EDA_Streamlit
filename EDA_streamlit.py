@@ -30,7 +30,7 @@ df = df[df["Attrition_Flag"] == job_filter]
 
 avg_age = df['Customer_Age'].mean()
 avg_dep = df['Dependent_count'].mean()
-count_married = df['Marital_Status'][df['Marital_Status'] == 'Married'].count()
+percent_married = df['Marital_Status'][df['Marital_Status'] == 'Married'].count()/df['Marital_Status'].count()
 #create 3 columns
 kpi1, kpi2, kpi3 = st.columns(3)
 
@@ -47,7 +47,7 @@ kpi2.metric(
 
 kpi3.metric(
     label = 'Married Count',
-    value=int(count_married)
+    value=int(percent_married)
 )
 
 
