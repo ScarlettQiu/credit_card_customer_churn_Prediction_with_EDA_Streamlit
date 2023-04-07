@@ -11,7 +11,10 @@ import streamlit as st  # 🎈 data web app development
 name = "Credit Card Customers EDA Dashboard"
 
 st.header(name)
-
+st.markdown('''
+---
+Created with 👩‍🚀 by [Yu Qiu](https://www.linkedin.com/in/yuqiuscarlettvelvet/).
+''')
 
 
 dataset_url = "https://raw.githubusercontent.com/ScarlettQiu/credit_card_customer_churn_prediction/af46862bff782f1008725fa49db88d1e36fc8d43/BankChurners.csv"
@@ -198,8 +201,3 @@ newdf = df_cleaned.select_dtypes(include=numerics)
 st.markdown("Scatter Plot: Dependent_count & Months_on_book Colored by Customer Status")
 fig = px.imshow(round(newdf.corr(),1), text_auto=True, width=700, height=700)
 st.write(fig)
-
-st.markdown('''
----
-Created with ❤️ by [Yu Qiu](https://www.linkedin.com/in/yuqiuscarlettvelvet/).
-''')
