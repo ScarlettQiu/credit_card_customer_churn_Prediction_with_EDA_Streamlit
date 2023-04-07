@@ -13,7 +13,7 @@ def clean(df):
 
 if __name__ == "__main__":
     # Main functions to Run
-    df = read('/Users/qiuyu/Desktop/ALY6140/M2/Capstone/BankChurners.csv')
+    df = read('https://raw.githubusercontent.com/ScarlettQiu/credit_card_customer_churn_prediction/af46862bff782f1008725fa49db88d1e36fc8d43/BankChurners.csv')
     print(df.info())
     # check the missing values in this dataset
     print(df.isnull().sum())
