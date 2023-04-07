@@ -14,6 +14,7 @@ st.header(name)
 st.markdown('''
 ---
 Created with 👩‍🚀 by [Yu Qiu](https://www.linkedin.com/in/yuqiuscarlettvelvet/).
+---
 ''')
 
 
