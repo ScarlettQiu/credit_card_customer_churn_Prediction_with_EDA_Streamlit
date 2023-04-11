@@ -53,7 +53,7 @@ with st.sidebar:
     revolving = df['Total_Revolving_Bal'].mean()
     open_to_buy = df['Avg_Open_To_Buy'].mean()
     utilization_ratio = df['Avg_Utilization_Ratio'].mean()
-    count_platinum = df['Card_Category'][df['Card_Category'] == 'platinum'].count()
+    count_platinum = df['Card_Category'][df['Card_Category'] == 'Platinum'].count()
     count_card = df['Card_Category'].count()
     percent_card = round(count_platinum / count_card, 4)
 
