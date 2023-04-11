@@ -55,7 +55,7 @@ with st.sidebar:
     utilization_ratio = df['Avg_Utilization_Ratio'].mean()
     count_platinum = df['Card_Category'][df['Card_Category'] == 'platinum'].count()
     count_card = df['Card_Category'].count()
-    percent_card = round(count_platinum / count_card, 2)
+    percent_card = round(count_platinum / count_card, 3)
 
 #print(percent_married)
 #create 3 columns
@@ -108,7 +108,7 @@ with st.sidebar:
 
     kpi6.metric(
         label = 'Platinum Card Ratio',
-        value=round(percent_card,2)
+        value=percent_card
     )
 
     kpi9, kpi10 = st.columns(2)
