@@ -108,7 +108,7 @@ with st.sidebar:
 
     kpi6.metric(
         label = 'Platinum Card Ratio',
-        value=round(percent_card)
+        value=round(percent_card,2)
     )
 
     kpi9, kpi10 = st.columns(2)
