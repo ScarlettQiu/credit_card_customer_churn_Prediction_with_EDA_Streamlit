@@ -66,7 +66,7 @@ with st.sidebar:
     )
 
     kpi2.metric(
-        label = 'Average Num of Dependents',
+        label = 'Num of Dependents',
         value = round(avg_dep)
     )
 
@@ -100,12 +100,12 @@ with st.sidebar:
 
     # fill in those three columns with respective metrics or KPIs
     kpi5.metric(
-        label='Num of Products Holding',
-        value=round(num_prod)
+        label='Num of Contacts',
+        value=round(contact_mon)
     )
 
     kpi6.metric(
-        label = 'Num of Months being Inactive',
+        label = 'Num of Months Inactive',
         value=round(mon_inactive)
     )
 
@@ -118,7 +118,7 @@ with st.sidebar:
     )
 
     kpi10.metric(
-        label = 'Num of Months being Inactive',
+        label = 'Num of Months Inactive',
         value=round(mon_inactive, 1)
     )
 
