@@ -25,43 +25,133 @@ def get_data() -> pd.DataFrame:
 
 df = get_data()
 
+with st.sidebar:
+    st.write("Average Figures of Credit Card Customers")
+    job_filter = st.selectbox("Select Customer Status", pd.unique(df["Attrition_Flag"]))
+
 # top-level filters
-job_filter = st.selectbox("Select Customer Status", pd.unique(df["Attrition_Flag"]))
+#job_filter = st.selectbox("Select Customer Status", pd.unique(df["Attrition_Flag"]))
 
 # dataframe filter
-df = df[df["Attrition_Flag"] == job_filter]
+    df = df[df["Attrition_Flag"] == job_filter]
 
-avg_age = df['Customer_Age'].mean()
-avg_dep = df['Dependent_count'].mean()
-percent_married = df['Marital_Status'][df['Marital_Status'] == 'Married'].count()/df['Marital_Status'].count()
+    avg_age = df['Customer_Age'].mean()
+    avg_dep = df['Dependent_count'].mean()
+    count_married = df['Marital_Status'][df['Marital_Status'] == 'Married'].count()
+    count = df['Marital_Status'].count()
+    percent_married = round(count_married/count,2)
+
+    avg_trans = df['Total_Trans_Ct'].mean()
+    avg_Amt = df['Total_Trans_Amt'].mean()
+    avg_amt_ch = df['Total_Amt_Chng_Q4_Q1'].mean()
+    avg_ct_ch = df['Total_Ct_Chng_Q4_Q1'].mean()
+    avg_relation = df['Months_on_book'].mean()
+    num_prod = df['Total_Relationship_Count'].mean()
+    mon_inactive = df['Months_Inactive_12_mon'].mean()
+    contact_mon = df['Contacts_Count_12_mon'].mean()
+    credit_lim = df['Credit_Limit'].mean()
+    revolving = df['Total_Revolving_Bal'].mean()
+    open_to_buy = df['Avg_Open_To_Buy'].mean()
+    utilization_ratio = df['Avg_Utilization_Ratio'].mean()
+
+
+#print(percent_married)
 #create 3 columns
-kpi1, kpi2, kpi3 = st.columns(3)
+    kpi1, kpi2 = st.columns(2)
 
 #fill in those three columns with respective metrics or KPIs
-kpi1.metric(
-    label = 'Average Age',
-    value = round(avg_age)
-)
+    kpi1.metric(
+        label = 'Average Age',
+        value = round(avg_age)
+    )
 
-kpi2.metric(
-    label = 'Average Dependent Count',
-    value = round(avg_dep)
-)
+    kpi2.metric(
+        label = 'Average Num of Dependents',
+        value = round(avg_dep)
+    )
 
-kpi3.metric(
-    label = 'Married Percent',
-    value=percent_married
-)
+    kpi3, kpi4 = st.columns(2)
 
+    # fill in those three columns with respective metrics or KPIs
+    kpi4.metric(
+        label='Num of Transactions (12-Mon)',
+        value=round(avg_trans)
+    )
 
+    kpi3.metric(
+        label = 'Married Percentage',
+        value=percent_married
+    )
 
-st.markdown("Histogram: Distribution of Customer Age")
-fig = px.histogram(df, x='Customer_Age')
-st.write(fig)
+    kpi5, kpi6 = st.columns(2)
 
+    # fill in those three columns with respective metrics or KPIs
+    kpi5.metric(
+        label='Transactions Amount (12-Mon)',
+        value=round(avg_Amt, 1)
+    )
+
+    kpi6.metric(
+        label = 'Length of Relationship',
+        value=round(avg_relation, 1)
+    )
+
+    kpi7, kpi8 = st.columns(2)
+
+    # fill in those three columns with respective metrics or KPIs
+    kpi5.metric(
+        label='Num of Products Holding',
+        value=round(num_prod)
+    )
+
+    kpi6.metric(
+        label = 'Num of Months being Inactive',
+        value=round(mon_inactive)
+    )
+
+    kpi9, kpi10 = st.columns(2)
+
+    # fill in those three columns with respective metrics or KPIs
+    kpi9.metric(
+        label='Num of Products Holding',
+        value=round(num_prod)
+    )
+
+    kpi10.metric(
+        label = 'Num of Months being Inactive',
+        value=round(mon_inactive, 1)
+    )
+
+    kpi11, kpi12 = st.columns(2)
+    # fill in those three columns with respective metrics or KPIs
+    kpi11.metric(
+        label='Credit Card Credit Limit',
+        value=round(credit_lim, 1)
+    )
+
+    kpi12.metric(
+        label = 'Revolving Balance',
+        value=round(revolving, 1)
+    )
+
+    kpi13, kpi14 = st.columns(2)
+    # fill in those three columns with respective metrics or KPIs
+    kpi13.metric(
+        label='Open to Buy Credit Line',
+        value=round(open_to_buy,1)
+    )
+
+    kpi14.metric(
+        label = 'Card Utilization Ratio',
+        value=round(utilization_ratio,2)
+    )
 # dataframe filter
 df2 = get_data()
 edu = df2.groupby('Attrition_Flag', as_index=False)['Education_Level'].value_counts(normalize=True).reset_index()
+
+st.markdown("Histogram: Distribution of Customer Age")
+fig = px.histogram(df2, x='Customer_Age')
+st.write(fig)
 
 #create two columns for charts
 
