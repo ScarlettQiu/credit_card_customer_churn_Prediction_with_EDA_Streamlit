@@ -184,82 +184,59 @@ st.write(fig)
 
 
 
-#calculate the aveage credit limit by attrition flag
-credit = df2.groupby('Attrition_Flag')['Credit_Limit'].mean().reset_index()
-status = credit['Attrition_Flag']
-value = credit['Credit_Limit']
 # create two columns for charts
 fig_col1, fig_col2 = st.columns(2)
 
 with fig_col1:
-    st.markdown("Bar chart of Average Credit Limit by Customer Status")
-    fig1 = px.bar(x=status, y = value, text = round(value,2), width=300, height=400)
+    st.markdown("Boxplot of Credit Card Limit")
+    fig1 = px.box(df2, x='Attrition_Flag', y = 'Credit_Limit', width=300, height=400)
     st.write(fig1)
 
-trans_df = df2.groupby('Attrition_Flag')['Total_Trans_Amt'].mean().reset_index()
-status = trans_df['Attrition_Flag']
-value = trans_df['Total_Trans_Amt']
-
 with fig_col2:
-    st.markdown("Bar chart of Average Transaction Amount by Customer Status")
-    fig2= px.bar(x=status, y = value, text = round(value,2), width=300, height=400)
-    st.write(fig2)
+    st.markdown("Boxplot of Transaction Amount in Last 12 Months")
+    fig2= px.box(df2, x='Attrition_Flag', y = 'Total_Trans_Amt', width=300, height=400)
+    st.write(fig2)    
 
-trans_ct = df2.groupby('Attrition_Flag')['Total_Trans_Ct'].mean().reset_index()
-status = trans_ct['Attrition_Flag']
-value = trans_ct['Total_Trans_Ct']
 # create two columns for charts
 fig_col1, fig_col2 = st.columns(2)
 
 with fig_col1:
-    st.markdown("Bar chart of Average Number of Transactions by Customer Status")
-    fig1 = px.bar(x=status, y = value, text = round(value,2), width=300, height=400)
+    st.markdown("Boxplot of Average Number of Transactions")
+    fig1 = px.box(df2, x='Attrition_Flag', y = 'Total_Trans_Ct', width=300, height=400)
     st.write(fig1)
 
-change = df2.groupby('Attrition_Flag')['Total_Ct_Chng_Q4_Q1'].mean().reset_index()
-status = change['Attrition_Flag']
-value = change['Total_Ct_Chng_Q4_Q1']
-
 with fig_col2:
-    st.markdown("Bar chart of Average Difference in Transaction Amount betwwen Q1 & Q4")
-    fig2= px.bar(x=status, y = value, text = round(value,2), width=300, height=400)
+    st.markdown("Boxplot of Average Difference in Transaction Amount betwwen Q1 & Q4")
+    fig2= px.box(df2, x='Attrition_Flag', y = 'Total_Ct_Chng_Q4_Q1', width=300, height=400)
     st.write(fig2)
 
-inactive = df2.groupby('Attrition_Flag')['Months_Inactive_12_mon'].mean().reset_index()
-status = inactive['Attrition_Flag']
-value = inactive['Months_Inactive_12_mon']
+
 # create two columns for charts
 fig_col1, fig_col2 = st.columns(2)
 
 with fig_col1:
-    st.markdown("Bar chart of Average number of months the customer is inactive by customer status")
-    fig1 = px.bar(x=status, y = value, text = round(value,2), width=300, height=400)
+    st.markdown("Boxplot of Length of Relationship")
+    fig1 = px.box(df2, x='Attrition_Flag', y = 'Months_on_book', width=300, height=400)
     st.write(fig1)
 
-num_pro = df2.groupby('Attrition_Flag')['Total_Relationship_Count'].mean().reset_index()
-status = num_pro['Attrition_Flag']
-value = num_pro['Total_Relationship_Count']
-
 with fig_col2:
-    st.markdown("Bar chart of Average number of products the customer is holding by Customer status")
-    fig2= px.bar(x=status, y = value, text = round(value,2), width=300, height=400)
+    st.markdown("Boxplot of Length being Inactive in Last 12 Months")
+    fig2= px.box(df2, x='Attrition_Flag', y = 'Months_Inactive_12_mon', width=300, height=400)
     st.write(fig2)
 
-length = df2.groupby('Attrition_Flag')['Months_on_book'].mean().reset_index()
-status = length['Attrition_Flag']
-value = length['Months_on_book']
 # create two columns for charts
 fig_col1, fig_col2 = st.columns(2)
 
 with fig_col1:
-    st.markdown("Bar chart of Average Length of the Relationship with Bank")
-    fig1 = px.bar(x=status, y = value, text = round(value,2), width=300, height=400)
+    st.markdown("Boxplot of Total Number of Products Customers Holding")
+    fig1 = px.box(df2, x='Attrition_Flag', y = 'Total_Relationship_Count', width=300, height=400)
     st.write(fig1)
 
 with fig_col2:
     st.markdown("Boxplot of Difference in Transaction Amount betwwen Q1 & Q4")
     fig2= px.box(df2, x='Attrition_Flag', y = 'Total_Ct_Chng_Q4_Q1', width=300, height=400)
     st.write(fig2)
+
 
 # create two columns for charts
 fig_col1, fig_col2 = st.columns(2)
