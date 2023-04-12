@@ -13,7 +13,7 @@ name = "Credit Card Customers EDA Dashboard"
 st.header(name)
 st.markdown('''
 ---
-Created with 👩‍🚀 by [Yu Qiu](https://www.linkedin.com/in/yuqiuscarlettvelvet/).
+👩‍🚀Created by [Yu Qiu](https://www.linkedin.com/in/yuqiuscarlettvelvet/).
 ''')
 
 
