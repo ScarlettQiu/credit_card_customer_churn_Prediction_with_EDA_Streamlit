@@ -251,15 +251,15 @@ with fig_col2:
     fig2= px.box(df2, x='Attrition_Flag', y = 'Total_Revolving_Bal', width=300, height=400)
     st.write(fig2)
 
-st.markdown("Scatter Plot: Total_Revolving_Bal and Total_Trans_Amt Colored by Customer Status")
+st.markdown("Scatter Plot: Total_Revolving_Bal vs Total_Trans_Amt Colored by Customer Status")
 fig = px.scatter(df2, x='Total_Revolving_Bal', y='Total_Trans_Amt', color='Attrition_Flag')
 st.write(fig)
 
-st.markdown("Scatter Plot: Total_Ct_Chng & Total_Relationship_Count Colored by Customer Status")
+st.markdown("Scatter Plot: Total_Ct_Chng vs Total_Relationship_Count Colored by Customer Status")
 fig = px.scatter(df2, x='Total_Ct_Chng_Q4_Q1', y='Total_Relationship_Count', color='Attrition_Flag')
 st.write(fig)
 
-st.markdown("Scatter Plot: Dependent_count & Months_on_book Colored by Customer Status")
+st.markdown("Scatter Plot: Dependent_count vs Months_on_book Colored by Customer Status")
 fig = px.scatter(df2, x='Dependent_count', y='Months_on_book', color='Attrition_Flag')
 st.write(fig)
 
@@ -267,6 +267,6 @@ st.write(fig)
 df_cleaned = clean(df2)
 numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
 newdf = df_cleaned.select_dtypes(include=numerics)
-st.markdown("Scatter Plot: Dependent_count & Months_on_book Colored by Customer Status")
+st.markdown("Correlation Heatmap")
 fig = px.imshow(round(newdf.corr(),1), text_auto=True, width=700, height=700)
 st.write(fig)
